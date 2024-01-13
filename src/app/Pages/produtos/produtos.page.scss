@@ -1,0 +1,22 @@
+h1{
+    text-align: center;
+    color: rgb(82, 31, 8);
+    text-shadow: 3px 3px 6px rgb(73, 73, 73);
+    font-weight: 700;
+}
+.pcort{
+    font-size: 22px;
+    color: #555;
+    text-decoration: line-through;
+    margin-right: 20px;
+}
+.desconto{
+    font-size: 24px;
+    color: rgb(248, 0, 0);
+}
+ion-card-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+}

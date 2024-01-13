@@ -1,0 +1,15 @@
+form{
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+ion-input{
+    margin: 20px;
+    background-color: rgb(255, 255, 255);
+}
+ion-thumbnail{
+    --size:25px;
+}
