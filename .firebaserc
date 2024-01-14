@@ -1,14 +1,5 @@
 {
-  "targets": {
-    "pretocheiroso-b765c": {
-      "hosting": {
-        "app": [
-          "pretocheiroso-b765c"
-        ]
-      }
-    }
-  },
   "projects": {
-    "default": "pretocheiroso-b765c"
+    "default": "agenda-local"
   }
 }
