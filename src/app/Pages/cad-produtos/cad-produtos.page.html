@@ -40,11 +40,11 @@
         </ion-item>
       </ion-list> -->
 
-      <ion-input fill="outline" placeholder="nome do produto" #productName> <ion-icon slot="start" name="lock-closed"
+      <ion-input fill="outline" placeholder="Nome do Produto" #productName> <ion-icon slot="start" name="lock-closed"
           aria-hidden="true"></ion-icon></ion-input>
-      <ion-input fill="outline" placeholder="descrição do produto" #productDescript></ion-input>
-      <ion-input fill="outline" value='{{preco1}}' placeholder="preço" #preco (keyup)="valorFormat($event.target)"></ion-input>
-      <ion-input fill="outline" type="number" placeholder="quantidade estoque" #Qtd></ion-input>
+      <ion-input fill="outline" placeholder="Descrição do Produto" #productDescript></ion-input>
+      <ion-input fill="outline" value='{{preco1}}' placeholder="Preço" #preco (keyup)="valorFormat($event.target)"></ion-input>
+      <ion-input fill="outline" type="number" placeholder="Quantidade em Estoque" #Qtd></ion-input>
       <ion-button fill="outline" expand="block" id="open-modal"><ion-thumbnail><img
             src="../../../assets/logos/googleLogo.png"></ion-thumbnail>Foto do produto</ion-button>
 
@@ -54,6 +54,9 @@
         (click)="cadastrarProduto(productName.value,productDescript.value,preco.value,Qtd.value)">Cadastrar</ion-button>
 
     </form>
+
+<ion-toast [isOpen]="isToastOpen" message="{{mensagem}}" [duration]="5000" (didDismiss)="setOpen(false)"></ion-toast>
+
 
 
 

@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
+
 export class AppComponent {
-  public appPages = [
+  public userName: string = ''; public appPages = [
     { title: 'Home', url: '/folder/home', icon: 'home' },
     { title: 'Produtos', url: '/produtos', icon: 'bag-handle' },
     { title: 'Promoções', url: '/folder/promocoes', icon: 'pricetags' },
@@ -19,5 +22,14 @@ export class AppComponent {
     { title: 'Editar Produtos', url: '/edit-produtos', icon: 'create' },
     { title: 'Deletar Produtos', url: '/delete-produtos', icon: 'trash' },
   ];
-  constructor() {}
+
+  constructor(private afAuth: AngularFireAuth) {
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.userName = user.displayName || user.email || 'Usuário sem nome';
+      } else {
+        this.userName = 'Usuário não logado';
+      }
+    });
+  }
 }
