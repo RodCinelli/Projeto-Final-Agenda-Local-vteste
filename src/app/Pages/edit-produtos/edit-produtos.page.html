@@ -32,27 +32,16 @@
       <div class="block">
         <h3>Editar Produto</h3>
         <form>
-          <!-- Campo para Nome do Produto -->
-          <ion-input fill="outline" [value]="produto.nome" #productName>
-            <ion-icon slot="start" name="lock-closed" aria-hidden="true"></ion-icon>
-          </ion-input>
-        
-          <!-- Campo para Descrição do Produto -->
-          <ion-input fill="outline" type="textarea" [value]="produto.descricao" #productDescript></ion-input>
-        
-          <!-- Campo para Preço do Produto -->
-          <ion-input fill="outline" [value]="'R$ ' + produto.preco" #preco></ion-input>
-        
-          <!-- Campo para Quantidade do Produto -->
-          <ion-input fill="outline" type="number" [value]="produto.qtd" #Qtd></ion-input>
-        
-          <!-- Imagem do Produto -->
-          <ion-img [src]="produto.image"></ion-img>
-        
-          <!-- Botão para Editar o Produto -->
-          <ion-button fill="outline" expand="block" (click)="EditarProduto(produto.id, productName.value, productDescript.value, preco.value, Qtd.value, produto.image)">
-            Editar
-          </ion-button>
+          <!-- Correções nos campos de input -->
+        <ion-input fill="outline" [value]="produto.nome ?? ''" #productName></ion-input>
+        <ion-input fill="outline" type="textarea" [value]="produto.descricao ?? ''" #productDescript></ion-input>
+        <ion-input fill="outline" [value]="produto.preco ?? 0" #preco></ion-input>
+        <ion-input fill="outline" type="number" [value]="produto.qtd ?? 0" #Qtd></ion-input>
+
+        <!-- Botão para Editar o Produto -->
+        <ion-button fill="outline" expand="block" (click)="EditarProduto(produto.id ?? '', productName.value ?? '', productDescript.value ?? '', preco.value.toString() ?? '', Qtd.value.toString() ?? '', produto.image)">
+          Editar
+        </ion-button>
         
           <!-- Botão para Fechar o Modal -->
           <ion-button expand="block" (click)="isModalOpen = !isModalOpen">Voltar</ion-button>

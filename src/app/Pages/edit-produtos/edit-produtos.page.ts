@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { collection, Firestore, getDocs, deleteDoc, doc, setDoc } from '@angular/fire/firestore';
-import { ref, Storage, getDownloadURL } from '@angular/fire/storage';
+import { collection, Firestore, getDocs, doc, setDoc } from '@angular/fire/firestore';
+import { ref, Storage, getDownloadURL, uploadBytes } from '@angular/fire/storage'; // Correção aqui
 
 @Component({
   selector: 'app-edit-produtos',
   templateUrl: './edit-produtos.page.html',
   styleUrls: ['./edit-produtos.page.scss'],
 })
+
 export class EditProdutosPage implements OnInit {
-  productName: string;
-  productDescript: string;
-  preco: number;
-  Qtd: number;
-  image: File; // Adiciona a propriedade 'image'
-  produto: any = {}; // Adiciona a propriedade 'produto'
+  produtos: any[] = [];
+  isToastOpen: boolean = false;
+  isModalOpen: boolean = false;
+  mensagem: string = '';
+  produto: any = {};
+  image: File | null = null; // Declaração da propriedade image
 
   constructor(private storage: Storage, private firestore: Firestore) { }
 
@@ -22,7 +23,10 @@ export class EditProdutosPage implements OnInit {
   }
 
   handleFileInput(files: FileList) {
-    this.image = files.item(0);
+    const file = files.item(0);
+    if (file) {
+      this.image = file;
+    }
   }
 
   async listarBanco() {
@@ -53,26 +57,30 @@ export class EditProdutosPage implements OnInit {
     this.produto.image = image
   }
 
-  async EditarProduto(id: string, nomeProduto: string, descProduto: string, precoProduto: number, qtdProduto: string, image: File) {
+  async EditarProduto(id: string, nomeProduto: string, descProduto: string, precoProduto: string, qtdProduto: string, image: File) {
     try {
+      // Converte precoProduto e qtdProduto para números
+      const precoNumerico = parseFloat(precoProduto);
+      const qtdNumerica = parseInt(qtdProduto);
+  
       // Faz o upload da imagem para o Firebase Storage
       const storageRef = ref(this.storage, 'produtos/' + image.name);
-      const uploadTask = await this.storage.upload(storageRef, image);
-      const imageUrl = await getDownloadURL(uploadTask.ref);
+      await uploadBytes(storageRef, image);
+      const imageUrl = await getDownloadURL(storageRef);
   
       // Salva a URL da imagem no documento do produto
       const produtoRef = doc(this.firestore, "Produtos", id);
       await setDoc(produtoRef, {
         nome: nomeProduto,
         descricao: descProduto,
-        preco: precoProduto,
-        qtd: qtdProduto,
-        image: imageUrl // Agora usa a URL da imagem do Firebase Storage
+        preco: precoNumerico,  // Usa o valor convertido
+        qtd: qtdNumerica,      // Usa o valor convertido
+        image: imageUrl        // Usa a URL da imagem do Firebase Storage
       });
   
       this.mensagem = 'Produto editado com sucesso!';
       this.setOpen(true);
-
+  
       // Recarrega a lista de produtos
       setTimeout(() => {
         this.produtos = [];
@@ -84,4 +92,4 @@ export class EditProdutosPage implements OnInit {
       this.setOpen(true);
     }
   }
-}
+}  
