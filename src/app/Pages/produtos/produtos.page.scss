@@ -1,22 +1,81 @@
-h1{
-    text-align: center;
-    color: rgb(82, 31, 8);
-    text-shadow: 3px 3px 6px rgb(73, 73, 73);
-    font-weight: 700;
-}
-.pcort{
-    font-size: 22px;
-    color: red;
-    text-decoration: line-through;
-    margin-right: 20px;
-}
-.desconto{
+/* Estilos Gerais */
+ion-content {
+    padding: 20px;
+    background: #f4f4f4;
+  }
+  
+  h1 {
+    color: #333;
     font-size: 24px;
-    color: green;
-}
-ion-card-title{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos do Card de Produto */
+  ion-card {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  ion-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  ion-card-header {
+    padding: 15px;
+    background: #fff;
+  }
+  
+  ion-card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    align-content: center;
-}
+  }
+  
+  .pcort {
+    font-size: 16px;
+    text-decoration: line-through;
+    color: red;
+  }
+  
+  .desconto {
+    font-size: 16px;
+    color: #4CAF50; /* Verde brilhante para contraste */
+    background-color: #D1ECF1; /* Azul claro suave */
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-left: 10px; /* Ajuste o espaçamento conforme necessário */
+  }
+  
+  
+  ion-card-subtitle {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  ion-card-content {
+    padding: 15px;
+    background: #fff;
+    color: #333;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .ion-card-title {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .desconto {
+      margin-top: 10px;
+      margin-left: 0;
+    }
+  }
+  
