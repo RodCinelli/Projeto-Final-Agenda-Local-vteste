@@ -10,7 +10,8 @@ const routes: Routes = [
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  },  {
+  },
+  {
     path: 'produtos',
     loadChildren: () => import('./Pages/produtos/produtos.module').then( m => m.ProdutosPageModule)
   },
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'delete-produtos',
     loadChildren: () => import('./Pages/delete-produtos/delete-produtos.module').then( m => m.DeleteProdutosPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./Pages/home/home.module').then( m => m.HomePageModule)
   }
 
 ];

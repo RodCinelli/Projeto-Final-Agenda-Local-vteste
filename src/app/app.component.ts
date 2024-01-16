@@ -9,7 +9,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 export class AppComponent {
   public userName: string = ''; public appPages = [
-    { title: 'Home', url: '/folder/home', icon: 'home' },
+    { title: 'Home', url: '/home', icon: 'home' },
     { title: 'Produtos', url: '/produtos', icon: 'bag-handle' },
     { title: 'Promoções', url: '/folder/promocoes', icon: 'pricetags' },
     { title: 'Lojas', url: '/folder/lojas', icon: 'storefront' },
