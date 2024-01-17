@@ -25,10 +25,10 @@ O Agenda Local é um aplicativo que apresenta aos usuários uma variedade de eve
 
 Para instalar e configurar o projeto localmente, siga estes passos:
 
-git clone https://github.com/RodCinelli/Projeto-Final-Agenda-Local
-cd Projeto-Final-Agenda-Local
-npm install
-ionic serve
+- git clone https://github.com/RodCinelli/Projeto-Final-Agenda-Local
+- cd Projeto-Final-Agenda-Local
+- npm install
+- ionic serve
 
 ## Uso
 
