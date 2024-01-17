@@ -13,3 +13,11 @@ ion-input{
 ion-thumbnail{
     --size:25px;
 }
+
+:host {
+    display: block;
+    background-color: #DBF2D8;
+    padding: 20px;
+    min-height: 90vh;
+    box-sizing: border-box;
+  }

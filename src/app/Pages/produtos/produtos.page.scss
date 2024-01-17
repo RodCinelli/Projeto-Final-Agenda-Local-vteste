@@ -1,3 +1,10 @@
+ion-header {
+    ion-toolbar {
+      --background: #6AA67F;
+      color: #fff;
+    }
+  }
+
 /* Estilos Gerais */
 ion-content {
     padding: 20px;
@@ -46,7 +53,7 @@ ion-card-title {
 }
 
 .desconto {
-    font-size: 16px;
+    font-size: 25px;
     color: #4CAF50;
     /* Verde brilhante para contraste */
     background-color: #D1ECF1;
@@ -67,6 +74,11 @@ ion-card-content {
     padding: 15px;
     background: #fff;
     color: #333;
+
+}
+
+#fundo{
+    background-color: #dbf2d8;
 }
 
 /* Responsividade */

@@ -1,15 +1,20 @@
+
+
 <div *ngIf="logado">
+  
   <ion-img src={{user.foto}}></ion-img>
   <h1>{{user.nome}}</h1>
   <ion-button (click)="logout()">LogOut</ion-button>
 </div>
 <form *ngIf="!cad && !logado">
-  <h1>Formulário de Login</h1>
+  <h1>Faça o Login</h1>
   <ion-input label-placement="floating" label="email" fill="outline" placeholder="insira seu email" #email></ion-input>
   <ion-input label="senha" type="password" label-placement="floating" fill="outline" placeholder="insira sua senha"
     #senha>
 
   </ion-input>
+
+  
   <ion-button expand="block" (click)="Logar(email.value, senha.value)">Login</ion-button>
 
   <p>Não é cadastrado? <a (click)="cad=!cad">Cadastrar-se</a></p>
