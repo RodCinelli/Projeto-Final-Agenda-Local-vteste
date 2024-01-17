@@ -38,7 +38,7 @@
           <ion-textarea [autoGrow]="true" fill="outline" value={{produto.descricao}} #productDescript
             (change)="this.produto.descricao=productDescript.value"></ion-textarea>
           <label>Valor:</label>
-          <ion-input fill="outline" value="R$ {{produto.preco}}" #preco
+          <ion-input fill="outline" value="{{produto.preco}}" #preco
             (change)="this.produto.preco=preco.value"></ion-input>
           <label>Quantidade:</label>
           <ion-input fill="outline" type="number" value={{produto.qtd}} #Qtd
