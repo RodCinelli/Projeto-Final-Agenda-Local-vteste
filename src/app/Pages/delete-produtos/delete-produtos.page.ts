@@ -32,7 +32,7 @@ export class DeleteProdutosPage implements OnInit {
     setTimeout(() => {
       this.produtos=[]
       this.listarBanco()
-     }, 2000);
+    }, 2000);
   }
   
 }
